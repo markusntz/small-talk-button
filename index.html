@@ -1,0 +1,135 @@
+<!--
+    //  //  //  //
+    Description dies das
+-->
+
+
+<html>
+    <head>
+        <title>Small Talk Button</title>
+        <style type="text/css">
+            body{
+                text-align:center;
+                font-size: 25px;
+                -moz-user-select:none;
+                -webkit-user-select:none;
+                -ms-user-select:none;
+                background-color:#FFFFFF;
+            }
+            .centered{
+                margin-left:auto;
+                margin-right:auto;
+            }
+            #button{
+                padding-top:50px;
+                width:650px;
+                height:200px;
+                display:table;
+            }
+            #buttonholder{
+                display:table-cell;
+                vertical-align:middle;
+            }
+            #talk{
+                color: #6c6c6c;
+                padding-top:25px;
+                font-weight:bold;
+                font-size:33px;
+            }
+            #button2 {
+                padding: 15px 25px;
+                font-size: 24px;
+                text-align: center;
+                cursor: pointer;
+                outline: none;
+                color: #fff;
+                background-color: #ff0000;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 9px #999;
+                }
+            #button2:hover {background-color: #ff4040}
+            #button2:active {
+                background-color: #e61919;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+
+        </style>
+        <script type="text/javascript">
+            var move = 5;
+            var pos = 0;
+            var interval = null;
+            function animate(){
+                var thebutton = document.getElementById("thebutton");
+                if(pos==225)
+                    move = -5;
+                if(pos==-225)
+                    move = 5;
+                pos +=move;
+                thebutton.style.left =  pos;
+            }
+            
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+
+            function speek(){
+                var say;
+
+                num = getRandomInt(30)
+
+                switch(num){
+                    case 0: say = "Was ich als erstes mache, wenn Corona vorbei ist"; break;
+                    case 1: say = "Mein Lieblingsessen"; break;
+                    case 2: say = "Mein Lieblingsgetränk"; break;
+                    case 3: say = "Mein größter Fuckup bei der Arbeit"; break;
+                    case 4: say = "Ein Projekt auf das ich stolz bin"; break;
+                    case 5: say = "Joker, nochmal drücken!"; break;
+                    case 6: say = "Meine Lieblingsprogrammiersprache"; break;
+                    case 7: say = "Cola oder Pepsi?"; break;
+                    case 8: say = "Bücher auf Papier oder Tablet?"; break;
+                    case 9: say = "Mein Lieblingspodcast"; break;
+                    case 10: say = "Hund oder Katze?"; break;
+                    case 11: say = "Alaaf oder Helau?"; break;
+                    case 12: say = "Tee oder Kaffee?"; break;
+                    case 13: say = "Nächster Baumarkt von mir aus"; break;
+                    case 14: say = "Berge oder Meer?"; break;
+                    case 15: say = "Hanuta oder Knoppers(riegel)?"; break;
+                    case 16: say = "Meine Lieblingsserie"; break;
+                    case 17: say = "Mein Lieblingsbuch"; break;
+                    case 18: say = "Wenn du eine Superkraft hättest, welche?"; break;
+                    case 19: say = "Was wolltest du schon immer machen, aber hast dich nie getraut?"; break;
+                    case 20: say = "Einsame Insel, drei Dinge"; break;
+                    case 21: say = "Welchen Emoji benutzt du am häufigsten?"; break;
+                    case 22: say = "Auto oder Fahrrad?"; break;
+                    case 23: say = "Frühaufsteher oder Morgenmuffel?"; break;
+                    case 24: say = "Senf oder Ketchup?"; break;
+                    case 25: say = "Auf was kannst du nicht verzichten?"; break;
+                    case 26: say = "Dein nächstes Reiseziel?"; break;
+                    case 27: say = "Das wollte ich als Kind werden"; break;
+                    case 28: say = "Lieblingseis"; break;
+                    case 29: say = "nächstes Hackday Projekt?"; break;
+                    case 30: say = "wenn ich ein Werkzeug ausm Sortiment wäre"; break;
+
+                    default: say ="Ja ähm ja also ähm ja";
+                }
+                document.getElementById("button2").onclick = function() {speek();};
+                document.getElementById("talk").innerHTML = say;
+            }
+
+            window.ondragstart = function() { return false; };
+        </script>
+    </head>
+    <body onload="disableSelection(self);" style="">
+
+    <div id="button" class="centered">
+        <div id="buttonholder">
+            <button2 class="button2" onclick="speek(1);" id="button2">Nächstes Thema</button2>
+        </div>
+    </div>
+    <div id="talk" class="centered">
+        Also ähm ja äh ja
+    </div>
+</body>
+</html>
